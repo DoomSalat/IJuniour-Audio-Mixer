@@ -261,6 +261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 74359314}
+  - component: {fileID: 74359315}
   m_Layer: 0
   m_Name: Sounds
   m_TagString: Untagged
@@ -285,6 +286,18 @@ Transform:
   - {fileID: 326364916}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &74359315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74359313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626be6d4e33eb7b4cbd4ec472e377b84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &175636835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,9 +1721,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e0ad9f1ff82104498e1be68a0bd350e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 24100000, guid: 82014b0b41726b3408a68993d2f890dd, type: 2}
-  _volumeParameter: MasterVolume
-  _defaultVolume: 0.75
+  _mixerGroup: {fileID: 24300002, guid: 82014b0b41726b3408a68993d2f890dd, type: 2}
+  _volumeMixer: {fileID: 74359315}
 --- !u!1001 &1442016960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1816,6 +1828,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6706891527546443091, guid: 771d052158a2a2c4096be617e7045769, type: 3}
+      propertyPath: _mixerGroup
+      value: 
+      objectReference: {fileID: 3937988494874636555, guid: 82014b0b41726b3408a68993d2f890dd, type: 2}
+    - target: {fileID: 6706891527546443091, guid: 771d052158a2a2c4096be617e7045769, type: 3}
+      propertyPath: _volumeMixer
+      value: 
+      objectReference: {fileID: 74359315}
     - target: {fileID: 7524963450108594012, guid: 771d052158a2a2c4096be617e7045769, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2389,6 +2409,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6706891527546443091, guid: 771d052158a2a2c4096be617e7045769, type: 3}
+      propertyPath: _mixerGroup
+      value: 
+      objectReference: {fileID: -2690479178703364630, guid: 82014b0b41726b3408a68993d2f890dd, type: 2}
+    - target: {fileID: 6706891527546443091, guid: 771d052158a2a2c4096be617e7045769, type: 3}
+      propertyPath: _volumeMixer
+      value: 
+      objectReference: {fileID: 74359315}
     - target: {fileID: 7524963450108594012, guid: 771d052158a2a2c4096be617e7045769, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2647,6 +2675,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6706891527546443091, guid: 771d052158a2a2c4096be617e7045769, type: 3}
+      propertyPath: _mixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 82014b0b41726b3408a68993d2f890dd, type: 2}
+    - target: {fileID: 6706891527546443091, guid: 771d052158a2a2c4096be617e7045769, type: 3}
+      propertyPath: _volumeMixer
+      value: 
+      objectReference: {fileID: 74359315}
     - target: {fileID: 7524963450108594012, guid: 771d052158a2a2c4096be617e7045769, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
