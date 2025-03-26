@@ -1,4 +1,3 @@
-using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -13,24 +12,26 @@ public class VolumeMixer : MonoBehaviour
 
 	[SerializeField] private AudioMixer _audioMixer;
 
-	private bool _active = true;
+	private bool _isActive = true;
 	private float _savedVolume;
 
 	public void SetLinearVolume(AudioMixerGroup _mixerGroup, float linearValue)
 	{
-		if (_active == false)
+		string parameter = GetParameterName(_mixerGroup);
+
+		if (_isActive == false && parameter == ParameterMain)
 			return;
 
-		string parameter = GetParameterName(_mixerGroup);
 		_mixerGroup.audioMixer.SetFloat(parameter, LinearToDb(linearValue));
 	}
 
 	public void SetDbVolume(AudioMixerGroup _mixerGroup, float dbValue)
 	{
-		if (_active == false)
+		string parameter = GetParameterName(_mixerGroup);
+
+		if (_isActive == false && parameter == ParameterMain)
 			return;
 
-		string parameter = GetParameterName(_mixerGroup);
 		_mixerGroup.audioMixer.SetFloat(parameter, LinearToDb(dbValue));
 	}
 
@@ -44,7 +45,7 @@ public class VolumeMixer : MonoBehaviour
 
 	public void DeactiveVolume()
 	{
-		_active = false;
+		_isActive = false;
 
 		_audioMixer.GetFloat(ParameterMain, out _savedVolume);
 		_audioMixer.SetFloat(ParameterMain, MinVolumeDb);
@@ -52,7 +53,7 @@ public class VolumeMixer : MonoBehaviour
 
 	public void ActiveVolume()
 	{
-		_active = true;
+		_isActive = true;
 
 		_audioMixer.SetFloat(ParameterMain, _savedVolume);
 	}
