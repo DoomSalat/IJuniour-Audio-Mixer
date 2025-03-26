@@ -1,23 +1,20 @@
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Toggle))]
-public class SoundToggleController : MonoBehaviour
+public class MasterVolumeToggle : MonoBehaviour
 {
-	private const float OffVolumeDb = -80f;
+	private const string MasterParameterName = "MasterVolume";
 
-	[SerializeField] private AudioMixerGroup _mixerGroup;
-	[SerializeField] private VolumeMixer _volumeMixer;
+	[SerializeField] private AudioVolume _audioVolume;
 
 	private Toggle _toggle;
 
 	private void Awake()
 	{
 		_toggle = GetComponent<Toggle>();
-
-		float currentDb = _volumeMixer.GetDbVolume(_mixerGroup);
-		_toggle.isOn = currentDb > OffVolumeDb;
+		float currentLinear = _audioVolume.GetVolume(MasterParameterName);
+		_toggle.isOn = currentLinear > 0f;
 
 		_toggle.onValueChanged.AddListener(OnToggleChanged);
 	}
@@ -26,11 +23,11 @@ public class SoundToggleController : MonoBehaviour
 	{
 		if (isOn)
 		{
-			_volumeMixer.ActiveVolume();
+			_audioVolume.ActivateMaster();
 		}
 		else
 		{
-			_volumeMixer.DeactiveVolume();
+			_audioVolume.DeactivateMaster();
 		}
 	}
 

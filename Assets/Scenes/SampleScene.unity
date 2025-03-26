@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626be6d4e33eb7b4cbd4ec472e377b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: 82014b0b41726b3408a68993d2f890dd, type: 2}
 --- !u!1 &175636835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,7 +1386,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1721,8 +1722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e0ad9f1ff82104498e1be68a0bd350e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mixerGroup: {fileID: 24300002, guid: 82014b0b41726b3408a68993d2f890dd, type: 2}
-  _volumeMixer: {fileID: 74359315}
+  _audioVolume: {fileID: 74359315}
 --- !u!1001 &1442016960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1832,6 +1832,10 @@ PrefabInstance:
       propertyPath: _mixerGroup
       value: 
       objectReference: {fileID: 3937988494874636555, guid: 82014b0b41726b3408a68993d2f890dd, type: 2}
+    - target: {fileID: 6706891527546443091, guid: 771d052158a2a2c4096be617e7045769, type: 3}
+      propertyPath: _audioVolume
+      value: 
+      objectReference: {fileID: 74359315}
     - target: {fileID: 6706891527546443091, guid: 771d052158a2a2c4096be617e7045769, type: 3}
       propertyPath: _volumeMixer
       value: 
@@ -2414,6 +2418,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2690479178703364630, guid: 82014b0b41726b3408a68993d2f890dd, type: 2}
     - target: {fileID: 6706891527546443091, guid: 771d052158a2a2c4096be617e7045769, type: 3}
+      propertyPath: _audioVolume
+      value: 
+      objectReference: {fileID: 74359315}
+    - target: {fileID: 6706891527546443091, guid: 771d052158a2a2c4096be617e7045769, type: 3}
       propertyPath: _volumeMixer
       value: 
       objectReference: {fileID: 74359315}
@@ -2679,6 +2687,10 @@ PrefabInstance:
       propertyPath: _mixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: 82014b0b41726b3408a68993d2f890dd, type: 2}
+    - target: {fileID: 6706891527546443091, guid: 771d052158a2a2c4096be617e7045769, type: 3}
+      propertyPath: _audioVolume
+      value: 
+      objectReference: {fileID: 74359315}
     - target: {fileID: 6706891527546443091, guid: 771d052158a2a2c4096be617e7045769, type: 3}
       propertyPath: _volumeMixer
       value: 
