@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9329748}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 326364917}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7fe55edcbbe6ea541a18bb8356b4b0db, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9329748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,7 +1244,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 693236877}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 326364917}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 23beb9b2f0cb23f409fdc2326dabfb77, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &693236877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1534,7 +1558,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 819261234}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 326364917}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: f6933ef9037ce9e498c2cb09d75b1644, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &819261234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1583,6 +1619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1406764050}
   - component: {fileID: 1406764051}
+  - component: {fileID: 1406764052}
   m_Layer: 5
   m_Name: Toggle Sound
   m_TagString: Untagged
@@ -1659,6 +1696,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!114 &1406764052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406764049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0ad9f1ff82104498e1be68a0bd350e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: 82014b0b41726b3408a68993d2f890dd, type: 2}
+  _volumeParameter: MasterVolume
+  _defaultVolume: 0.75
 --- !u!1001 &1442016960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1671,6 +1723,10 @@ PrefabInstance:
       propertyPath: m_text
       value: "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u0444\u043E\u043D\u043E\u0432\u043E\u0439
         \u043C\u0443\u0437\u044B\u043A\u0438"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5150934671170076411, guid: 771d052158a2a2c4096be617e7045769, type: 3}
+      propertyPath: _volumeParameter
+      value: MusicVolume
       objectReference: {fileID: 0}
     - target: {fileID: 5734863403692090844, guid: 771d052158a2a2c4096be617e7045769, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1816,12 +1872,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3937988494874636555, guid: 82014b0b41726b3408a68993d2f890dd, type: 2}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 2786cdbfc21c72644892c3bb2de7a9f8, type: 3}
+  m_Resource: {fileID: 8300000, guid: 2786cdbfc21c72644892c3bb2de7a9f8, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2241,6 +2297,10 @@ PrefabInstance:
       value: "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u043A\u043D\u043E\u043F\u043A
         (1,2,3)"
       objectReference: {fileID: 0}
+    - target: {fileID: 5150934671170076411, guid: 771d052158a2a2c4096be617e7045769, type: 3}
+      propertyPath: _volumeParameter
+      value: SFXVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 5734863403692090844, guid: 771d052158a2a2c4096be617e7045769, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2505,7 +2565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5790920645745652552, guid: 771d052158a2a2c4096be617e7045769, type: 3}
       propertyPath: m_Value
-      value: 0
+      value: 0.0001
       objectReference: {fileID: 0}
     - target: {fileID: 5826159239807680019, guid: 771d052158a2a2c4096be617e7045769, type: 3}
       propertyPath: m_Pivot.x

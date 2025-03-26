@@ -478,10 +478,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 5734863403692090844}
   m_HandleRect: {fileID: 7524963450108594012}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -496,6 +496,7 @@ GameObject:
   - component: {fileID: 5826159239807680019}
   - component: {fileID: 8928388464766097426}
   - component: {fileID: 1057396488953720673}
+  - component: {fileID: 5150934671170076411}
   m_Layer: 5
   m_Name: Panel Slider
   m_TagString: Untagged
@@ -561,6 +562,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5150934671170076411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5754527586063954279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c5c4da545b4a24c849399ee92bc4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: 82014b0b41726b3408a68993d2f890dd, type: 2}
+  _volumeParameter: MasterVolume
+  _volumeSlider: {fileID: 5790920645745652552}
 --- !u!1 &5970150394546472476
 GameObject:
   m_ObjectHideFlags: 0
