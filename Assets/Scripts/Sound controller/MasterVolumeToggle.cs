@@ -4,8 +4,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Toggle))]
 public class MasterVolumeToggle : MonoBehaviour
 {
-	private const string MasterParameterName = "MasterVolume";
-
 	[SerializeField] private AudioVolume _audioVolume;
 
 	private Toggle _toggle;
@@ -13,10 +11,17 @@ public class MasterVolumeToggle : MonoBehaviour
 	private void Awake()
 	{
 		_toggle = GetComponent<Toggle>();
-		float currentLinear = _audioVolume.GetVolume(MasterParameterName);
-		_toggle.isOn = currentLinear > 0f;
+	}
 
+	private void OnEnable()
+	{
+		_toggle.isOn = _audioVolume.IsMasterActive;
 		_toggle.onValueChanged.AddListener(OnToggleChanged);
+	}
+
+	private void OnDisable()
+	{
+		_toggle.onValueChanged.RemoveListener(OnToggleChanged);
 	}
 
 	private void OnToggleChanged(bool isOn)
@@ -29,10 +34,5 @@ public class MasterVolumeToggle : MonoBehaviour
 		{
 			_audioVolume.DeactivateMaster();
 		}
-	}
-
-	private void OnDestroy()
-	{
-		_toggle.onValueChanged.RemoveListener(OnToggleChanged);
 	}
 }
