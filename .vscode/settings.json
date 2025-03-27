@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "IJunior Audio Mixer.sln"
+    "dotnet.defaultSolution": "IJuniour-Audio-Mixer.sln"
 }

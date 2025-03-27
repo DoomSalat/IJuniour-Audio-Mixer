@@ -44,7 +44,7 @@ public class AudioVolume : MonoBehaviour
 		if (parameterName == MasterParameterName && _isMasterActive == false)
 		{
 			_savedMasterVolume = dbValue;
-			PlayerPrefs.SetFloat(MasterVolumeSaveKey, DbToLinear(_savedMasterVolume));
+			VolumeSaveSystem.SaveFloat(MasterVolumeSaveKey, DbToLinear(_savedMasterVolume));
 
 			return;
 		}
@@ -55,7 +55,7 @@ public class AudioVolume : MonoBehaviour
 		}
 		else
 		{
-			PlayerPrefs.SetFloat(parameterName + SaveSuffix, DbToLinear(dbValue));
+			VolumeSaveSystem.SaveFloat(parameterName + SaveSuffix, DbToLinear(dbValue));
 		}
 	}
 
@@ -89,8 +89,8 @@ public class AudioVolume : MonoBehaviour
 		_audioMixer.SetFloat(MasterParameterName, MinVolumeDb);
 		_isMasterActive = false;
 
-		PlayerPrefs.SetInt(MasterActiveSaveKey, FalseValue);
-		PlayerPrefs.SetFloat(MasterActiveSaveKey, DbToLinear(_savedMasterVolume));
+		VolumeSaveSystem.SaveInt(MasterActiveSaveKey, FalseValue);
+		VolumeSaveSystem.SaveFloat(MasterActiveSaveKey, DbToLinear(_savedMasterVolume));
 	}
 
 	public void ActivateMaster()
@@ -101,26 +101,26 @@ public class AudioVolume : MonoBehaviour
 		_isMasterActive = true;
 		SetDbVolume(MasterParameterName, _savedMasterVolume);
 
-		PlayerPrefs.SetInt(MasterActiveSaveKey, TrueValue);
+		VolumeSaveSystem.SaveInt(MasterActiveSaveKey, TrueValue);
 	}
 
 	public void LoadLocalVolumeSettings(string parameterName)
 	{
 		string savedParameter = parameterName + SaveSuffix;
 
-		if (PlayerPrefs.HasKey(savedParameter))
+		if (VolumeSaveSystem.HasSave(savedParameter))
 		{
-			float savedVolume = PlayerPrefs.GetFloat(savedParameter);
+			float savedVolume = VolumeSaveSystem.LoadFloat(savedParameter);
 			SetLinearVolume(parameterName, savedVolume);
 		}
 	}
 
 	private void LoadMasterVolumeSettings()
 	{
-		int isActive = PlayerPrefs.GetInt(MasterActiveSaveKey);
+		int isActive = VolumeSaveSystem.LoadInt(MasterActiveSaveKey);
 		_isMasterActive = isActive == TrueValue;
 
-		_savedMasterVolume = LinearToDb(PlayerPrefs.GetFloat(MasterVolumeSaveKey));
+		_savedMasterVolume = LinearToDb(VolumeSaveSystem.LoadFloat(MasterVolumeSaveKey));
 	}
 
 	private float LinearToDb(float linear)
