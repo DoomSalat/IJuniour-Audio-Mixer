@@ -2,6 +2,9 @@ using UnityEngine;
 
 public static class VolumeSaveSystem
 {
+	private const int TrueValue = 1;
+	private const int FalseValue = 0;
+
 	public static bool HasSave(string key)
 	{
 		return PlayerPrefs.HasKey(key);
@@ -25,5 +28,15 @@ public static class VolumeSaveSystem
 	public static int LoadInt(string key)
 	{
 		return PlayerPrefs.GetInt(key);
+	}
+
+	public static void SaveBool(string key, bool value)
+	{
+		PlayerPrefs.SetInt(key, value ? TrueValue : FalseValue);
+	}
+
+	public static bool LoadBool(string key)
+	{
+		return PlayerPrefs.GetInt(key) == TrueValue;
 	}
 }

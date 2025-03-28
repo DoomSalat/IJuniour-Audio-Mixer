@@ -7,7 +7,6 @@ public class AudioVolume : MonoBehaviour
 	private const string MasterVolumeSaveKey = "MasterVolumePref";
 	private const string MasterActiveSaveKey = "MasterActivePref";
 	private const int TrueValue = 1;
-	private const int FalseValue = 0;
 
 	private const string MasterParameterName = "MasterVolume";
 	private const float DbConversionFactor = 20f;
@@ -89,7 +88,7 @@ public class AudioVolume : MonoBehaviour
 		_audioMixer.SetFloat(MasterParameterName, MinVolumeDb);
 		_isMasterActive = false;
 
-		VolumeSaveSystem.SaveInt(MasterActiveSaveKey, FalseValue);
+		VolumeSaveSystem.SaveBool(MasterActiveSaveKey, false);
 		VolumeSaveSystem.SaveFloat(MasterActiveSaveKey, DbToLinear(_savedMasterVolume));
 	}
 
@@ -101,7 +100,7 @@ public class AudioVolume : MonoBehaviour
 		_isMasterActive = true;
 		SetDbVolume(MasterParameterName, _savedMasterVolume);
 
-		VolumeSaveSystem.SaveInt(MasterActiveSaveKey, TrueValue);
+		VolumeSaveSystem.SaveBool(MasterActiveSaveKey, true);
 	}
 
 	public void LoadLocalVolumeSettings(string parameterName)
@@ -117,8 +116,7 @@ public class AudioVolume : MonoBehaviour
 
 	private void LoadMasterVolumeSettings()
 	{
-		int isActive = VolumeSaveSystem.LoadInt(MasterActiveSaveKey);
-		_isMasterActive = isActive == TrueValue;
+		_isMasterActive = VolumeSaveSystem.LoadBool(MasterActiveSaveKey);
 
 		_savedMasterVolume = LinearToDb(VolumeSaveSystem.LoadFloat(MasterVolumeSaveKey));
 	}
